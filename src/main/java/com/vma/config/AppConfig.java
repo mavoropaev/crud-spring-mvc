@@ -22,24 +22,24 @@ public class AppConfig {
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setPackagesToScan("com.vma.domain");
         sessionFactory.setHibernateProperties(hibernateProperties());
-
         return sessionFactory;
     }
 
-    public Properties hibernateProperties() {
+    private Properties hibernateProperties() {
         Properties properties = new Properties();
-        properties.put(Environment.DIALECT, "org.hibernate.dialect.MqSQLDialect");
-        properties.put(Environment.DRIVER, "com.p6spy.engine.spy.P6SpyDriver");
+        properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
+        //properties.put(Environment.DRIVER, "com.p6spy.engine.spy.P6SpyDriver");
+        properties.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
         properties.put(Environment.HBM2DDL_AUTO, "validate");
-
         return properties;
     }
 
     @Bean
     public DataSource dataSource() {
         HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setDriverClassName("com.p6spy.engine.spy.P6SpyDriver");
-        dataSource.setJdbcUrl("jdbc:p6spy:mysql://localhost:3306/project_spring1");
+        //dataSource.setDriverClassName("com.p6spy.engine.spy.P6SpyDriver");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/project_spring1?useSSL=false&allowPublicKeyRetrieval=true");
         dataSource.setUsername("root");
         dataSource.setPassword("college");
         dataSource.setMaximumPoolSize(10);

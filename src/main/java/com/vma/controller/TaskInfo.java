@@ -4,7 +4,8 @@ import com.vma.domain.Status;
 
 public class TaskInfo {
     private String description;
-    private Status status;
+    //private Status status;
+    private Integer status;
 
     public String getDescription() {
         return description;
@@ -14,11 +15,11 @@ public class TaskInfo {
         this.description = description;
     }
 
-    public Status getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 }

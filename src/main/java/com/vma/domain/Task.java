@@ -8,12 +8,16 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
+    @Column(name = "description")
     private String description;
 
-    @Enumerated(EnumType.ORDINAL)
-    private Status status;
+    @Column(name = "status")
+    //@Enumerated(EnumType.ORDINAL)
+    //private Status status;
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -31,11 +35,11 @@ public class Task {
         this.description = description;
     }
 
-    public Status getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 }
