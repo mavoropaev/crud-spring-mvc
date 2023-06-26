@@ -30,7 +30,7 @@ public class TaskController {
     }
 
     @PostMapping("/{id}")
-    public void edit(Model model,
+    public String edit(Model model,
                      @PathVariable Integer id,
                      @RequestBody TaskInfo info){
 
@@ -39,15 +39,15 @@ public class TaskController {
         }
 
         Task task = taskService.edit(id, info.getDescription(), info.getStatus());
-
+        return tasks(model, 1, 10);
     }
 
     @PostMapping("/")
-    public void add(Model model,
+    public String add(Model model,
                      @RequestBody TaskInfo info){
 
         Task task = taskService.create(info.getDescription(), info.getStatus());
-
+        return tasks(model, 1, 10);
     }
 
     @DeleteMapping("/{id}")
@@ -59,7 +59,7 @@ public class TaskController {
         }
         taskService.delete(id);
 
-        return "tasks";
+        return tasks(model, 1, 10);
     }
 
 

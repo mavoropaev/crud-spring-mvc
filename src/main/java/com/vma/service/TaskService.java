@@ -27,7 +27,8 @@ public class TaskService {
     }
 
     @Transactional
-    public Task edit(int id, String description, Status status){
+    //public Task edit(int id, String description, Status status){
+    public Task edit(int id, String description, Integer status){
         Task task = taskDAO.getById(id);
         if (isNull(task)){
             throw new RuntimeException("Not fount");
@@ -39,7 +40,8 @@ public class TaskService {
         return task;
     }
 
-    public Task create(String description, Status status){
+    //public Task create(String description, Status status){
+    public Task create(String description, Integer status){
         Task task = new Task();
         task.setDescription(description);
         task.setStatus(status);

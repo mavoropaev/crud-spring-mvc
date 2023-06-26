@@ -1,7 +1,6 @@
 package com.vma.dao;
 
 import com.vma.domain.Task;
-import org.hibernate.QueryException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
